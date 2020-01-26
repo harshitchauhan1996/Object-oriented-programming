@@ -1,0 +1,63 @@
+
+
+	Question: Write a program to add two distances using friend function in c++.
+Program:
+#include<iostream.h>
+#include<conio.h>
+class distance
+{
+	int km,m,cm;
+	public:
+	void get_dist(int a,int b,int c)
+	{
+	     km=a;
+	     m=b;
+	     cm=c;
+	}
+	friend distance cal_dist(distance D1,distance D2);
+	void disp()
+	{
+		cout<<km<<"\t"<<m<<"\t"<<cm<<"\t"<<endl;
+	}
+};
+
+ distance  cal_dist(distance D1,distance D2)
+{
+	distance obj;
+	obj.km=D1.km+D2.km;
+	obj.m=D1.m+D2.m;
+	while(obj.m>=1000)
+	{
+		obj.km+=1;
+		obj.m=obj.m-1000;
+	}
+	obj.cm=D1.cm+D2.cm;
+	while(obj.cm>=100)
+	{
+		obj.m+=1;
+		obj.cm=obj.cm-100;
+	}
+	return obj;
+}
+void main()
+{
+	int x,y,z;
+	distance o1,o2,o3;
+	clrscr();
+	cout<<"\nEnter the first distance::";
+	cin>>x>>y>>z;
+	o1.get_dist(x,y,z);
+	cout<<"\nEnter the second distance::";
+	cin>>x>>y>>z;
+	o2.get_dist(x,y,z);
+	cout<<"\nKM\tM\tCM"<<endl;
+	o1.disp();
+	o2.disp();
+	o3=cal_dist(o1,o2);
+	cout<<"\n------------------------------\n";
+	o3.disp();
+	getch();
+}
+
+
+
