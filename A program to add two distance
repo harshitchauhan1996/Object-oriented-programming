@@ -1,0 +1,48 @@
+#include<iostream.h>
+#include<conio.h>
+class time
+{
+	private:
+	int hr,min,sec,s1,s2,s3;
+	public:
+		void input()
+		{
+		cout<<"enter hour";
+		cin>>hr;
+		cout<<"enter minute";
+		cin>>min;
+		cout<<"enter second";
+		cin>>sec;
+		}
+			void dis()
+			{
+			cout<<"hour=" <<s1<<endl<<"minute="<<s2<<endl<<"second="<<s3<<endl;
+			}
+				void cal(time M, time N)
+				{
+					s1=M.hr+N.hr;
+					s2=M.min+N.min;
+					while(s2>=60)
+					{
+						s1++;
+						s2=s2-60;
+					}
+					s3=M.sec+N.sec;
+					while(s3>=60)
+					{
+					  s2++;
+					  s3=s3-60;
+					}
+				  }
+
+};
+void main()
+{
+time ob1,ob2,ob3;
+clrscr();
+ob1.input();
+ob2.input();
+ob3.cal(ob1,ob2);
+ob3.dis();
+getch();
+}
